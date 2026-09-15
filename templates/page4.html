@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Little Letter ♡</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            color: #4d3d4b;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(239, 187, 215, .65),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 88% 70%,
+                    rgba(201, 191, 228, .65),
+                    transparent 30%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #fff5fa,
+                    #f9eef7,
+                    #f0edf8
+                );
+        }
+
+
+        /* =========================
+           BACKGROUND
+        ========================= */
+
+        .background {
+            position: fixed;
+
+            inset: 0;
+
+            overflow: hidden;
+
+            pointer-events: none;
+        }
+
+
+        .orb {
+            position: absolute;
+
+            border-radius: 50%;
+
+            filter: blur(10px);
+
+            opacity: .45;
+
+            animation: floating 8s ease-in-out infinite;
+        }
+
+
+        .orb1 {
+            width: 230px;
+            height: 230px;
+
+            left: -80px;
+            top: 15%;
+
+            background: #efbad7;
+        }
+
+
+        .orb2 {
+            width: 200px;
+            height: 200px;
+
+            right: -70px;
+            bottom: 10%;
+
+            background: #c8bee4;
+
+            animation-delay: 2s;
+        }
+
+
+        .orb3 {
+            width: 120px;
+            height: 120px;
+
+            left: 45%;
+            bottom: -50px;
+
+            background: #f1cfe0;
+
+            animation-delay: 4s;
+        }
+
+
+        @keyframes floating {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-25px);
+            }
+
+        }
+
+
+        /* =========================
+           DECORATIONS
+        ========================= */
+
+        .decor {
+            position: fixed;
+
+            z-index: 2;
+
+            color: #b28da6;
+
+            opacity: .55;
+
+            font-size: 22px;
+
+            animation:
+                decorFloat 6s ease-in-out infinite;
+
+            pointer-events: none;
+        }
+
+
+        .d1 {
+            left: 8%;
+            top: 25%;
+        }
+
+
+        .d2 {
+            right: 9%;
+            top: 25%;
+
+            animation-delay: 1s;
+        }
+
+
+        .d3 {
+            left: 13%;
+            bottom: 17%;
+
+            animation-delay: 2s;
+        }
+
+
+        .d4 {
+            right: 14%;
+            bottom: 16%;
+
+            animation-delay: 3s;
+        }
+
+
+        @keyframes decorFloat {
+
+            0%,100% {
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+            }
+
+            50% {
+                transform:
+                    translateY(-15px)
+                    rotate(10deg);
+            }
+
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            height: 70px;
+
+            padding: 0 7%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            position: relative;
+
+            z-index: 10;
+        }
+
+
+        .logo {
+            font-size: 23px;
+
+            font-style: italic;
+
+            color: #574453;
+        }
+
+
+        .chapter {
+            font-size: 10px;
+
+            letter-spacing: 3px;
+
+            color: #9e7e92;
+        }
+
+
+        .back {
+            text-decoration: none;
+
+            color: #5b4957;
+
+            border: 1px solid #d8c4d3;
+
+            padding: 9px 18px;
+
+            border-radius: 30px;
+
+            font-size: 12px;
+
+            background: rgba(255,255,255,.45);
+
+            transition: .3s;
+        }
+
+
+        .back:hover {
+            background: white;
+
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        main {
+            height: calc(100vh - 100px);
+
+            width: min(1100px, 90%);
+
+            margin: auto;
+
+            position: relative;
+
+            z-index: 5;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+
+        .chapter-title {
+            font-size: 10px;
+
+            letter-spacing: 5px;
+
+            color: #a17d94;
+
+            margin-bottom: 7px;
+
+            animation: fadeDown .8s ease;
+        }
+
+
+        h1 {
+            font-size: clamp(40px, 5vw, 62px);
+
+            font-weight: normal;
+
+            font-style: italic;
+
+            color: #493947;
+
+            animation: titleIn 1s ease;
+        }
+
+
+        .subtitle {
+            margin-top: 6px;
+
+            color: #7d6977;
+
+            font-size: 13px;
+
+            text-align: center;
+
+            animation: fadeUp 1s ease;
+        }
+
+
+        /* =========================
+           LETTER AREA
+        ========================= */
+
+        .letter-area {
+            margin-top: 22px;
+
+            width: 650px;
+
+            max-width: 90vw;
+
+            height: 370px;
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+
+        /* =========================
+           ENVELOPE
+        ========================= */
+
+        .envelope {
+            width: 310px;
+
+            height: 205px;
+
+            position: relative;
+
+            cursor: pointer;
+
+            transition:
+                transform .5s ease,
+                opacity .5s ease;
+        }
+
+
+        .envelope:hover {
+            transform: translateY(-8px) rotate(-1deg);
+        }
+
+
+        .envelope-body {
+            position: absolute;
+
+            inset: 0;
+
+            background: #ead1df;
+
+            border-radius: 7px;
+
+            box-shadow:
+                0 20px 45px rgba(72,51,67,.18);
+
+            overflow: hidden;
+        }
+
+
+        .envelope-body::before {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: 0;
+
+            width: 0;
+            height: 0;
+
+            border-left: 155px solid transparent;
+
+            border-right: 155px solid transparent;
+
+            border-bottom: 110px solid #dfc0d2;
+        }
+
+
+        .envelope-body::after {
+            content: "";
+
+            position: absolute;
+
+            right: 0;
+            bottom: 0;
+
+            width: 0;
+            height: 0;
+
+            border-left: 155px solid transparent;
+
+            border-top: 110px solid #e5c9d9;
+        }
+
+
+        .flap {
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 0;
+            height: 0;
+
+            border-left: 155px solid transparent;
+
+            border-right: 155px solid transparent;
+
+            border-top: 115px solid #f0dce7;
+
+            transform-origin: top center;
+
+            transition:
+                transform 1s ease;
+
+            z-index: 4;
+        }
+
+
+        .seal {
+            position: absolute;
+
+            left: 50%;
+            top: 53%;
+
+            transform: translate(-50%, -50%);
+
+            width: 50px;
+            height: 50px;
+
+            border-radius: 50%;
+
+            background: #9b718c;
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 20px;
+
+            z-index: 6;
+
+            box-shadow:
+                0 6px 15px rgba(75,51,68,.2);
+
+            transition: .4s;
+        }
+
+
+        .click-text {
+            position: absolute;
+
+            bottom: -38px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            white-space: nowrap;
+
+            color: #92758a;
+
+            font-size: 11px;
+
+            letter-spacing: 1px;
+
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+
+        @keyframes pulse {
+
+            0%,100% {
+                opacity: .55;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+        }
+
+
+        /* =========================
+           OPEN ENVELOPE
+        ========================= */
+
+        .letter {
+            position: absolute;
+
+            width: 430px;
+
+            max-width: 90vw;
+
+            min-height: 310px;
+
+            background: #fffdfb;
+
+            padding: 30px 35px;
+
+            border-radius: 5px;
+
+            box-shadow:
+                0 25px 55px rgba(72,51,67,.18);
+
+            opacity: 0;
+
+            transform:
+                translateY(80px)
+                scale(.8);
+
+            pointer-events: none;
+
+            transition:
+                opacity .8s ease,
+                transform .9s ease;
+
+            z-index: 20;
+        }
+
+
+        .letter::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 35px;
+            right: 35px;
+
+            height: 5px;
+
+            background: #e6c4d8;
+        }
+
+
+        .letter-date {
+            text-align: right;
+
+            font-size: 10px;
+
+            color: #a58a99;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .letter h2 {
+            font-size: 25px;
+
+            font-weight: normal;
+
+            font-style: italic;
+
+            color: #554250;
+
+            margin-bottom: 15px;
+        }
+
+
+        .letter p {
+            font-size: 12px;
+
+            line-height: 1.8;
+
+            color: #766572;
+
+            margin-bottom: 11px;
+        }
+
+
+        .signature {
+            margin-top: 12px;
+
+            text-align: right;
+
+            font-size: 17px;
+
+            font-style: italic;
+
+            color: #806277;
+        }
+
+
+        /* =========================
+           OPEN STATE
+        ========================= */
+
+        .letter-area.open .envelope {
+            opacity: 0;
+
+            transform:
+                translateY(-30px)
+                scale(.8);
+
+            pointer-events: none;
+        }
+
+
+        .letter-area.open .flap {
+            transform: rotateX(180deg);
+        }
+
+
+        .letter-area.open .letter {
+            opacity: 1;
+
+            transform:
+                translateY(0)
+                scale(1);
+
+            pointer-events: auto;
+        }
+
+
+        /* =========================
+           BOTTOM BUTTON
+        ========================= */
+
+        .bottom {
+            margin-top: 10px;
+
+            display: flex;
+
+            gap: 12px;
+
+            align-items: center;
+
+            justify-content: center;
+
+            opacity: 0;
+
+            transform: translateY(15px);
+
+            transition:
+                opacity .8s ease,
+                transform .8s ease;
+        }
+
+
+        .letter-area.open ~ .bottom {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+
+        .home-button {
+            display: inline-block;
+
+            text-decoration: none;
+
+            color: white;
+
+            background: #80657d;
+
+            padding: 12px 27px;
+
+            border-radius: 50px;
+
+            font-size: 12px;
+
+            box-shadow:
+                0 10px 25px rgba(70,50,65,.15);
+
+            transition: .3s;
+        }
+
+
+        .home-button:hover {
+            transform: translateY(-4px);
+
+            background: #6d5369;
+        }
+
+
+        .close-button {
+            border: 1px solid #d6c0d0;
+
+            background: rgba(255,255,255,.5);
+
+            color: #80657d;
+
+            padding: 11px 22px;
+
+            border-radius: 50px;
+
+            font-family: inherit;
+
+            font-size: 12px;
+
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+
+        .close-button:hover {
+            background: white;
+
+            transform: translateY(-4px);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            position: fixed;
+
+            bottom: 14px;
+
+            left: 0;
+            right: 0;
+
+            text-align: center;
+
+            font-size: 9px;
+
+            letter-spacing: 1px;
+
+            color: #a58d9e;
+
+            z-index: 10;
+        }
+
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
+        @keyframes fadeDown {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(-15px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+
+        }
+
+
+        @keyframes titleIn {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    scale(.9);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    scale(1);
+            }
+
+        }
+
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 0 5%;
+            }
+
+
+            .chapter {
+                display: none;
+            }
+
+
+            h1 {
+                font-size: 43px;
+
+                text-align: center;
+            }
+
+
+            .letter-area {
+                height: 350px;
+            }
+
+
+            .envelope {
+                transform: scale(.85);
+            }
+
+
+            .letter {
+                min-height: 290px;
+
+                padding: 25px;
+            }
+
+
+            .letter p {
+                font-size: 11px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- BACKGROUND -->
+
+    <div class="background">
+
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+
+    </div>
+
+
+    <!-- DECORATIONS -->
+
+    <div class="decor d1">✦</div>
+    <div class="decor d2">♡</div>
+    <div class="decor d3">✿</div>
+    <div class="decor d4">✧</div>
+
+
+    <!-- NAV -->
+
+    <nav>
+
+
+        <div class="chapter">
+            CHAPTER 04 / 04
+        </div>
+
+        <a href="/page3" class="back">
+            ← Back
+        </a>
+
+    </nav>
+
+
+    <!-- MAIN -->
+
+    <main>
+
+
+        <div class="chapter-title">
+            CHAPTER 04 · A LITTLE LETTER
+        </div>
+
+
+        <h1>
+            One last thing... 💌
+        </h1>
+
+
+        <p class="subtitle">
+            Before you leave, there's a little message waiting for you.
+        </p>
+
+
+        <!-- LETTER AREA -->
+
+        <div class="letter-area" id="letterArea">
+
+
+            <!-- ENVELOPE -->
+
+            <div class="envelope" onclick="openLetter()">
+
+
+                <div class="envelope-body"></div>
+
+
+                <div class="flap"></div>
+
+
+                <div class="seal">
+                    ♡
+                </div>
+
+
+                <div class="click-text">
+                    click the envelope ♡
+                </div>
+
+
+            </div>
+
+
+            <!-- LETTER -->
+
+            <div class="letter">
+
+
+                <div class="letter-date">
+                    a little note
+                </div>
+
+
+                <h2>
+                    Dear you, ♡
+                </h2>
+
+
+                <p>
+                    Thank you for taking a little time
+                    to step into my small universe.
+                </p>
+
+
+                <p>
+                    These pages are only little pieces
+                    of who I am, but I hope they gave
+                    you a tiny glimpse into my world,
+                    my memories, and the things I love.
+                </p>
+
+
+                <p>
+                    Life doesn't always have to be
+                    perfect to be beautiful.
+                    Sometimes, the smallest moments
+                    become the memories we treasure most.
+                </p>
+
+
+                <p>
+                    So here's to more little moments,
+                    more dreams, more laughter,
+                    and more beautiful chapters
+                    waiting to be written. ✨
+                </p>
+
+
+                <div class="signature">
+                    With love,<br>
+                    Raflecia ♡
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+        <!-- BUTTONS -->
+
+        <div class="bottom">
+
+            <button
+                class="close-button"
+                onclick="closeLetter()">
+
+                Close letter
+
+            </button>
+
+
+            <a
+                href="/"
+                class="home-button">
+
+                ↺ Start again
+
+            </a>
+
+        </div>
+
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+        made with little pieces of love · Raflecia ♡
+    </footer>
+
+
+    <script>
+
+        function openLetter() {
+
+            const area =
+                document.getElementById("letterArea");
+
+            area.classList.add("open");
+
+        }
+
+
+        function closeLetter() {
+
+            const area =
+                document.getElementById("letterArea");
+
+            area.classList.remove("open");
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

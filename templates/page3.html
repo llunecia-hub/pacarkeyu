@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Little Universe ♡</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Georgia, "Times New Roman", serif;
+            color: #4b3c4a;
+            overflow-x: hidden;
+
+            background:
+                radial-gradient(circle at 10% 20%,
+                rgba(238, 190, 216, .65),
+                transparent 28%),
+
+                radial-gradient(circle at 90% 75%,
+                rgba(202, 190, 229, .65),
+                transparent 30%),
+
+                linear-gradient(
+                    135deg,
+                    #fff5fa,
+                    #f8eef6,
+                    #f3eef9
+                );
+        }
+
+
+        /* BACKGROUND */
+
+        .background {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(8px);
+            opacity: .45;
+            animation: floatOrb 8s ease-in-out infinite;
+        }
+
+        .orb1 {
+            width: 230px;
+            height: 230px;
+            background: #efbad5;
+            left: -70px;
+            top: 15%;
+        }
+
+        .orb2 {
+            width: 190px;
+            height: 190px;
+            background: #c9bee5;
+            right: -60px;
+            top: 20%;
+            animation-delay: 2s;
+        }
+
+        .orb3 {
+            width: 130px;
+            height: 130px;
+            background: #f2d1e2;
+            left: 48%;
+            bottom: -50px;
+            animation-delay: 4s;
+        }
+
+        @keyframes floatOrb {
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-25px);
+            }
+        }
+
+
+        /* FLOATING DECORATION */
+
+        .decor {
+            position: fixed;
+            z-index: 1;
+            color: #b48ca7;
+            opacity: .55;
+            font-size: 22px;
+            animation: floatDecor 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .d1 {
+            left: 8%;
+            top: 25%;
+        }
+
+        .d2 {
+            right: 8%;
+            top: 30%;
+            animation-delay: 1s;
+        }
+
+        .d3 {
+            left: 13%;
+            bottom: 15%;
+            animation-delay: 2s;
+        }
+
+        .d4 {
+            right: 15%;
+            bottom: 13%;
+            animation-delay: 3s;
+        }
+
+        @keyframes floatDecor {
+
+            0%,100% {
+                transform: translateY(0) rotate(0);
+            }
+
+            50% {
+                transform: translateY(-15px) rotate(10deg);
+            }
+        }
+
+
+        /* NAVBAR */
+
+        nav {
+            height: 75px;
+            padding: 0 7%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            position: relative;
+            z-index: 5;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-style: italic;
+            color: #574553;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .chapter {
+            font-size: 10px;
+            letter-spacing: 3px;
+            color: #a08296;
+        }
+
+        .back {
+            text-decoration: none;
+            color: #5b4957;
+
+            border: 1px solid #d8c4d3;
+
+            padding: 9px 18px;
+
+            border-radius: 30px;
+
+            font-size: 12px;
+
+            background: rgba(255,255,255,.45);
+
+            transition: .3s;
+        }
+
+        .back:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+
+
+        /* MAIN */
+
+        main {
+            width: min(1180px, 88%);
+            margin: auto;
+
+            position: relative;
+            z-index: 3;
+
+            padding: 20px 0 35px;
+        }
+
+        .chapter-title {
+            text-align: center;
+
+            font-size: 10px;
+            letter-spacing: 5px;
+
+            color: #a17c94;
+
+            animation: fadeDown .8s ease;
+        }
+
+        h1 {
+            text-align: center;
+
+            font-size: clamp(42px, 5vw, 66px);
+
+            font-weight: normal;
+            font-style: italic;
+
+            color: #493947;
+
+            margin-top: 8px;
+
+            animation: titleIn 1s ease;
+        }
+
+        .intro {
+            max-width: 570px;
+
+            margin: 10px auto 25px;
+
+            text-align: center;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            color: #786674;
+
+            animation: fadeUp 1s ease;
+        }
+
+
+        /* CARDS */
+
+        .universe {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .card {
+            min-height: 255px;
+
+            padding: 24px 21px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: 27px;
+
+            background: rgba(255,255,255,.62);
+
+            border: 1px solid rgba(255,255,255,.9);
+
+            box-shadow:
+                0 15px 35px rgba(77,55,72,.10);
+
+            backdrop-filter: blur(14px);
+
+            cursor: pointer;
+
+            transition:
+                transform .4s ease,
+                box-shadow .4s ease;
+
+            opacity: 0;
+
+            animation: cardIn .8s ease forwards;
+        }
+
+        .card:nth-child(1) {
+            animation-delay: .1s;
+        }
+
+        .card:nth-child(2) {
+            animation-delay: .25s;
+        }
+
+        .card:nth-child(3) {
+            animation-delay: .4s;
+        }
+
+        .card:nth-child(4) {
+            animation-delay: .55s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) rotate(-1deg);
+
+            box-shadow:
+                0 25px 45px rgba(77,55,72,.17);
+        }
+
+        .card::after {
+            content: "";
+
+            width: 100px;
+            height: 100px;
+
+            position: absolute;
+
+            right: -45px;
+            bottom: -45px;
+
+            border-radius: 50%;
+
+            background: rgba(230,193,216,.35);
+        }
+
+        .icon {
+            width: 55px;
+            height: 55px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,.72);
+
+            font-size: 25px;
+
+            margin-bottom: 16px;
+
+            box-shadow:
+                0 8px 18px rgba(70,50,65,.08);
+
+            transition: .4s;
+        }
+
+        .card:hover .icon {
+            transform: scale(1.12) rotate(10deg);
+        }
+
+        .label {
+            font-size: 9px;
+            letter-spacing: 3px;
+            color: #a68196;
+
+            margin-bottom: 7px;
+        }
+
+        .card h2 {
+            font-size: 22px;
+            font-weight: normal;
+
+            color: #554251;
+
+            margin-bottom: 10px;
+        }
+
+        .preview {
+            font-size: 12px;
+            line-height: 1.65;
+
+            color: #806d79;
+        }
+
+
+        /* HIDDEN CONTENT */
+
+        .content {
+            max-height: 0;
+            opacity: 0;
+
+            overflow: hidden;
+
+            transition:
+                max-height .5s ease,
+                opacity .4s ease;
+        }
+
+        .card.active {
+            background: rgba(255,255,255,.85);
+        }
+
+        .card.active .content {
+            max-height: 130px;
+            opacity: 1;
+
+            margin-top: 12px;
+        }
+
+        .card.active .preview {
+            display: none;
+        }
+
+        .content p {
+            font-size: 12px;
+            line-height: 1.7;
+
+            color: #756370;
+        }
+
+
+        /* HINT */
+
+        .hint {
+            text-align: center;
+
+            margin-top: 14px;
+
+            font-size: 10px;
+
+            letter-spacing: 1px;
+
+            color: #a48698;
+        }
+
+
+        /* QUOTE */
+
+        .quote {
+            width: min(700px, 95%);
+
+            margin: 22px auto 0;
+
+            padding: 17px 25px;
+
+            text-align: center;
+
+            border-radius: 20px;
+
+            background: rgba(255,255,255,.5);
+
+            box-shadow:
+                0 10px 25px rgba(75,50,70,.06);
+
+            font-size: 13px;
+
+            font-style: italic;
+
+            color: #806b79;
+
+            animation: fadeUp 1.3s ease;
+        }
+
+
+        /* NEXT */
+
+        .next {
+            text-align: center;
+            margin-top: 22px;
+        }
+
+        .next-button {
+            display: inline-block;
+
+            text-decoration: none;
+
+            color: white;
+
+            background: #80657d;
+
+            padding: 13px 30px;
+
+            border-radius: 50px;
+
+            font-size: 13px;
+
+            box-shadow:
+                0 10px 25px rgba(70,50,65,.15);
+
+            transition: .35s;
+        }
+
+        .next-button:hover {
+            transform: translateY(-5px);
+
+            background: #6d5369;
+
+            box-shadow:
+                0 18px 35px rgba(70,50,65,.22);
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+
+            padding: 0 20px 20px;
+
+            font-size: 10px;
+
+            letter-spacing: 1px;
+
+            color: #a58d9e;
+        }
+
+
+        /* ANIMATION */
+
+        @keyframes fadeDown {
+
+            from {
+                opacity: 0;
+                transform: translateY(-15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes titleIn {
+
+            from {
+                opacity: 0;
+                transform: scale(.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes cardIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* TABLET */
+
+        @media (max-width: 950px) {
+
+            .universe {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        /* HP */
+
+        @media (max-width: 600px) {
+
+            nav {
+                height: 65px;
+            }
+
+            .chapter {
+                display: none;
+            }
+
+            main {
+                padding-top: 10px;
+            }
+
+            h1 {
+                font-size: 43px;
+            }
+
+            .universe {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                min-height: 215px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- BACKGROUND -->
+
+    <div class="background">
+
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+
+    </div>
+
+
+    <!-- DECORATIONS -->
+
+    <div class="decor d1">✦</div>
+    <div class="decor d2">♡</div>
+    <div class="decor d3">✿</div>
+    <div class="decor d4">✧</div>
+
+
+    <!-- NAV -->
+
+    <nav>
+
+        <div class="logo">
+            Raflecia ♡
+        </div>
+
+        <div class="nav-right">
+
+            <div class="chapter">
+                03 / 04
+            </div>
+
+            <a href="/page2" class="back">
+                ← Back
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- MAIN -->
+
+    <main>
+
+        <div class="chapter-title">
+            CHAPTER 03 · MY LITTLE UNIVERSE
+        </div>
+
+
+        <h1>
+            A few things about me ✦
+        </h1>
+
+
+        <p class="intro">
+
+            Everyone has their own little universe.
+            <br>
+
+            Here are a few little pieces of mine.
+            Click the cards to discover them ♡
+
+        </p>
+
+
+        <!-- CARDS -->
+
+        <section class="universe">
+
+
+            <!-- CARD 1 -->
+
+            <div class="card" onclick="openCard(this)">
+
+                <div class="icon">
+                    🌷
+                </div>
+
+                <div class="label">
+                    LITTLE THINGS
+                </div>
+
+                <h2>
+                    Things I Love
+                </h2>
+
+                <p class="preview">
+                    The little things that make
+                    ordinary days feel special.
+                </p>
+
+                <div class="content">
+
+                    <p>
+                        Stunning lilies that easily brighten my mood
+                        you feel,
+                        Endless TikTok scrolling for quick entertainment,
+                        watching Chinese dramas with a mountain of snacks.
+                    </p> 
+                </div>
+
+            </div>
+
+
+            <!-- CARD 2 -->
+
+            <div class="card" onclick="openCard(this)">
+
+                <div class="icon">
+                    🎧
+                </div>
+
+                <div class="label">
+                    MY VIBE
+                </div>
+
+                <h2>
+                  Soundtrack of My Life
+                </h2>
+
+                <p class="preview">
+                    Every mood has its own little soundtrack.
+                </p>
+
+                <div class="content">
+
+                    <p>
+                       JVKE songs on repeat all day long,
+                       Cup of Joe’s Multo constantly stuck in my head,
+                       Favorite K-Pop tracks mixed into the loop.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- CARD 3 -->
+
+            <div class="card" onclick="openCard(this)">
+
+                <div class="icon">
+                    💻
+                </div>
+
+                <div class="label">
+                    MY JOURNEY
+                </div>
+
+                <h2>
+                    Learning
+                </h2>
+
+                <p class="preview">
+                    Still learning, still growing,
+                    one step at a time.
+                </p>
+
+                <div class="content">
+
+                    <p>
+                       Pursuing Computer Science at Universitas Klabat,
+                       Navigating through the world of code and tech,
+                       Fueling the big dream of studying S2 at Harvard University, s
+                       Sharpening my skills and daring to reach higher.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- CARD 4 -->
+
+            <div class="card" onclick="openCard(this)">
+
+                <div class="icon">
+                    ✨
+                </div>
+
+                <div class="label">
+                    MY BELIEF
+                </div>
+
+                <h2>
+                    Little Dreams
+                </h2>
+
+                <p class="preview">
+                    Some dreams are quiet,
+                    but they still matter.
+                </p>
+
+                <div class="content">
+
+                    <p>
+                        Big dreams start with consistent small steps,
+                        Staying positive and enjoying every simple moment,
+                        Surrounding myself with the right environment and people. ♡
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <div class="hint">
+            ✦ click a card to open it ✦
+        </div>
+
+
+        <!-- QUOTE -->
+
+        <div class="quote">
+
+            "There is beauty in becoming
+            the person you're meant to be." ♡
+
+        </div>
+
+
+        <!-- NEXT -->
+
+        <div class="next">
+
+    <a href="/page4" class="next-button">
+        One last thing → 💌
+    </a>
+
+</div>
+        </div>
+
+    </main>
+
+
+    <footer>
+        chapter 03 · a little universe of Raflecia ♡
+    </footer>
+
+
+    <script>
+
+        function openCard(card) {
+
+            const cards =
+                document.querySelectorAll(".card");
+
+            cards.forEach(function(item) {
+
+                if (item !== card) {
+                    item.classList.remove("active");
+                }
+
+            });
+
+            card.classList.toggle("active");
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

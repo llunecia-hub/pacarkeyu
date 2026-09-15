@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Raflecia Mona ♡</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        body {
+            background:
+                radial-gradient(
+                    circle at 50% 35%,
+                    #49384f 0%,
+                    #241d32 35%,
+                    #110f1d 75%
+                );
+
+            color: #fff;
+        }
+
+
+        /* =========================
+           PAGE
+        ========================= */
+
+        .page {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            min-height: 500px;
+            overflow: hidden;
+        }
+
+
+        /* =========================
+           STARS
+        ========================= */
+
+        .stars {
+            position: absolute;
+            inset: 0;
+
+            background-image:
+                radial-gradient(
+                    circle,
+                    rgba(255,255,255,.9) 1px,
+                    transparent 1px
+                ),
+
+                radial-gradient(
+                    circle,
+                    rgba(255,196,225,.7) 1px,
+                    transparent 1px
+                );
+
+            background-size:
+                80px 80px,
+                130px 130px;
+
+            animation: starMove 20s linear infinite;
+        }
+
+        @keyframes starMove {
+
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-80px);
+            }
+
+        }
+
+
+        /* =========================
+           FLOATING ORBS
+        ========================= */
+
+        .orb {
+            position: absolute;
+
+            border-radius: 50%;
+
+            filter: blur(2px);
+
+            opacity: .45;
+
+            animation: float 7s ease-in-out infinite;
+        }
+
+        .orb.one {
+            width: 180px;
+            height: 180px;
+
+            background: #e9a6cf;
+
+            left: 5%;
+            top: 15%;
+        }
+
+        .orb.two {
+            width: 120px;
+            height: 120px;
+
+            background: #a89bd8;
+
+            right: 8%;
+            top: 20%;
+
+            animation-delay: 2s;
+        }
+
+        .orb.three {
+            width: 90px;
+            height: 90px;
+
+            background: #f8d4e7;
+
+            left: 15%;
+            bottom: 10%;
+
+            animation-delay: 1s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-25px);
+            }
+
+        }
+
+
+        /* =========================
+           MOON
+        ========================= */
+
+        .moon {
+            position: absolute;
+
+            top: 12%;
+            right: 15%;
+
+            width: clamp(90px, 11vw, 150px);
+
+            aspect-ratio: 1;
+
+            border-radius: 50%;
+
+            background: #fff1fa;
+
+            box-shadow:
+                0 0 30px #f9cde7,
+                0 0 80px rgba(255,190,225,.35);
+        }
+
+        .moon::after {
+            content: "";
+
+            position: absolute;
+
+            width: 100%;
+            height: 100%;
+
+            border-radius: 50%;
+
+            background: #241d32;
+
+            left: 25%;
+            top: -10%;
+        }
+
+
+        /* =========================
+           FLOWERS
+        ========================= */
+
+        .flower {
+            position: absolute;
+
+            font-size: 25px;
+
+            opacity: .7;
+
+            animation:
+                flowerFloat
+                8s
+                ease-in-out
+                infinite;
+        }
+
+        .flower.a {
+            left: 10%;
+            top: 65%;
+        }
+
+        .flower.b {
+            right: 18%;
+            bottom: 15%;
+
+            animation-delay: 2s;
+        }
+
+        .flower.c {
+            right: 5%;
+            top: 60%;
+
+            animation-delay: 4s;
+        }
+
+        @keyframes flowerFloat {
+
+            0%,
+            100% {
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+            }
+
+            50% {
+                transform:
+                    translateY(-20px)
+                    rotate(8deg);
+            }
+
+        }
+
+
+        /* =========================
+           MAIN CONTENT
+        ========================= */
+
+        .content {
+            position: relative;
+
+            z-index: 5;
+
+            height: 100%;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            padding: 30px;
+        }
+
+
+        /* =========================
+           SMALL TITLE
+        ========================= */
+
+        .small-title {
+            letter-spacing: 5px;
+
+            font-size:
+                clamp(
+                    11px,
+                    1vw,
+                    15px
+                );
+
+            color: #f4bfdc;
+
+            margin-bottom: 18px;
+
+            animation:
+                appear
+                1.2s
+                ease
+                forwards;
+        }
+
+
+        /* =========================
+           MAIN TITLE
+        ========================= */
+
+        h1 {
+            font-size:
+                clamp(
+                    55px,
+                    8vw,
+                    120px
+                );
+
+            font-weight: normal;
+
+            font-style: italic;
+
+            text-shadow:
+                0 0 15px
+                rgba(255,190,220,.4),
+
+                0 0 45px
+                rgba(255,190,220,.2);
+
+            animation:
+                titleAppear
+                1.5s
+                ease
+                forwards;
+        }
+
+
+        /* =========================
+           SUBTITLE
+        ========================= */
+
+        .subtitle {
+            margin-top: 20px;
+
+            font-size:
+                clamp(
+                    14px,
+                    1.5vw,
+                    21px
+                );
+
+            color: #eadce8;
+
+            letter-spacing: 2px;
+
+            animation:
+                appear
+                2s
+                ease
+                forwards;
+        }
+
+
+        /* =========================
+           ENTER BUTTON
+        ========================= */
+
+        .enter-btn {
+
+            display: inline-block;
+
+            margin-top: 45px;
+
+            padding: 15px 35px;
+
+            border:
+                1px solid
+                rgba(255,220,240,.6);
+
+            border-radius: 50px;
+
+            color: white;
+
+            text-decoration: none;
+
+            background:
+                rgba(255,255,255,.08);
+
+            backdrop-filter: blur(10px);
+
+            transition: .4s;
+
+            animation:
+                appear
+                2.5s
+                ease
+                forwards;
+
+            cursor: pointer;
+        }
+
+        .enter-btn:hover {
+
+            background:
+                rgba(255,205,230,.2);
+
+            transform:
+                translateY(-5px)
+                scale(1.04);
+
+            box-shadow:
+                0 10px 35px
+                rgba(255,180,220,.2);
+        }
+
+
+        /* =========================
+           SCROLL TEXT
+        ========================= */
+
+        .scroll {
+
+            position: absolute;
+
+            bottom: 25px;
+
+            width: 100%;
+
+            text-align: center;
+
+            font-size: 11px;
+
+            letter-spacing: 3px;
+
+            color: #cdbdca;
+
+            animation:
+                pulse
+                2s
+                infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: .4;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+        }
+
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
+        @keyframes appear {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+
+        }
+
+
+        @keyframes titleAppear {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    scale(.8);
+
+                filter: blur(8px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    scale(1);
+
+                filter: blur(0);
+            }
+
+        }
+
+
+        /* =========================
+           PAGE TRANSITION
+        ========================= */
+
+        .transition {
+
+            position: fixed;
+
+            inset: 0;
+
+            background: #181322;
+
+            z-index: 100;
+
+            transform:
+                translateY(100%);
+
+            transition:
+                transform
+                .7s
+                cubic-bezier(
+                    .77,
+                    0,
+                    .18,
+                    1
+                );
+
+            pointer-events: none;
+        }
+
+        .transition.active {
+
+            transform:
+                translateY(0);
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media(max-width: 600px) {
+
+            .moon {
+
+                right: 8%;
+                top: 10%;
+            }
+
+            .orb.one {
+
+                left: -50px;
+            }
+
+            h1 {
+
+                font-size: 55px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="page">
+
+
+        <!-- STARS -->
+
+        <div class="stars"></div>
+
+
+        <!-- FLOATING ORBS -->
+
+        <div class="orb one"></div>
+
+        <div class="orb two"></div>
+
+        <div class="orb three"></div>
+
+
+        <!-- MOON -->
+
+        <div class="moon"></div>
+
+
+        <!-- FLOWERS -->
+
+        <div class="flower a">
+            ✿
+        </div>
+
+        <div class="flower b">
+            ♡
+        </div>
+
+        <div class="flower c">
+            ✧
+        </div>
+
+
+        <!-- MAIN CONTENT -->
+
+        <main class="content">
+
+
+            <div class="small-title">
+
+                WELCOME TO MY LITTLE WORLD
+
+            </div>
+
+
+            <h1>
+
+                Raflecia Mona
+
+            </h1>
+
+
+            <p class="subtitle">
+
+                a tiny universe made of little things ♡
+
+            </p>
+
+
+            <!-- ENTER BUTTON -->
+
+            <a
+                href="/page2"
+                class="enter-btn"
+                onclick="pageTransition(event)"
+            >
+
+                Enter my world
+
+            </a>
+
+
+        </main>
+
+
+        <div class="scroll">
+
+            ✦ THERE'S MORE TO DISCOVER ✦
+
+        </div>
+
+
+    </div>
+
+
+    <!-- TRANSITION -->
+
+    <div
+        class="transition"
+        id="transition"
+    ></div>
+
+
+    <script>
+
+        function pageTransition(event) {
+
+            event.preventDefault();
+
+            const link =
+                event.currentTarget;
+
+            const transition =
+                document.getElementById(
+                    "transition"
+                );
+
+
+            transition.classList.add(
+                "active"
+            );
+
+
+            setTimeout(function() {
+
+                window.location.href =
+                    link.getAttribute("href");
+
+            }, 650);
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
